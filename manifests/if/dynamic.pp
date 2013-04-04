@@ -32,7 +32,8 @@ define network::if::dynamic (
   $macaddress = '',
   $bootproto = 'dhcp',
   $mtu = '',
-  $ethtool_opts = ''
+  $ethtool_opts = '',
+  $peerdns = false
 ) {
   # Validate our regular expressions
   $states = [ '^up$', '^down$' ]
@@ -53,6 +54,7 @@ define network::if::dynamic (
     bootproto    => $bootproto,
     mtu          => $mtu,
     ethtool_opts => $ethtool_opts,
+    peerdns      => $peerdns,
     bonding_opts => '',
   }
 } # define network::if::dynamic
